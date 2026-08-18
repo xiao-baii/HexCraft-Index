@@ -1,0 +1,41 @@
+---
+import "animal-island-ui/style"
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="zh" class="island-motion-ready">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#9de2d8" />
+    <link rel="icon" href="/sailboat.svg?v=20260818-3" type="image/svg+xml" />
+    <title>{title}</title>
+    <style is:global>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

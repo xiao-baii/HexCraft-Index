@@ -1,0 +1,221 @@
+---
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout
+  title="HexCraft"
+  description="HexCraft 页面未找到"
+>
+  <main class="notFound">
+    <span class="cloud cloudOne" aria-hidden="true"></span>
+    <span class="cloud cloudTwo" aria-hidden="true"></span>
+    <span class="cloud cloudThree" aria-hidden="true"></span>
+
+    <section class="notFoundCard" aria-labelledby="not-found-title">
+      <div class="sailboat" aria-hidden="true">
+        <img class="sailboatIcon" src="/sailboat.svg" alt="" />
+      </div>
+
+      <p class="status">404</p>
+      <h1 id="not-found-title">这座小岛还没有建好</h1>
+      <p class="copy">你要找的页面可能已经搬走了，先回到 HexCraft 首页看看吧。</p>
+      <a class="homeLink" href="/">返回 HexCraft 首页</a>
+    </section>
+
+    <div class="shore" aria-hidden="true"></div>
+    <div class="sea" aria-hidden="true"></div>
+  </main>
+</Layout>
+
+<style>
+  .notFound {
+    position: relative;
+    display: grid;
+    min-height: 100svh;
+    place-items: center;
+    overflow: hidden;
+    padding: 48px 24px 156px;
+    background:
+      radial-gradient(circle at 78% 20%, rgb(255 255 255 / 34%) 0 7%, transparent 7.2%),
+      linear-gradient(180deg, #9de2d8 0%, #d9f4e9 100%);
+    color: var(--animal-text-color);
+    font-family: var(--animal-font-family);
+  }
+
+  .notFoundCard {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: min(100%, 510px);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sailboat {
+    display: grid;
+    width: 116px;
+    aspect-ratio: 1;
+    place-items: center;
+    margin-bottom: 18px;
+    padding: 17px;
+    border-radius: 30px;
+    background: #fffaf0;
+    filter: drop-shadow(0 12px 14px rgb(91 78 30 / 18%));
+    animation: sailboat-float 5.6s ease-in-out infinite;
+  }
+
+  .sailboatIcon {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .status {
+    margin: 0;
+    color: var(--animal-warning-color);
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+
+  h1 {
+    margin: 8px 0 12px;
+    color: var(--animal-text-color);
+    font-size: clamp(36px, 6vw, 58px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .copy {
+    max-width: 380px;
+    margin: 0;
+    color: var(--animal-text-color-secondary);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  .homeLink {
+    margin-top: 28px;
+    padding: 15px 24px;
+    border: 2px solid var(--animal-border-color-light);
+    border-radius: 999px;
+    color: var(--animal-text-color);
+    background: #fffaf0;
+    box-shadow: 0 5px #bdaea0;
+    font-size: 16px;
+    font-weight: 900;
+    text-decoration: none;
+    transition:
+      transform var(--animal-motion-duration-base) var(--animal-motion-ease),
+      box-shadow var(--animal-motion-duration-base) var(--animal-motion-ease);
+  }
+
+  .homeLink:hover {
+    box-shadow: 0 7px #bdaea0;
+    transform: translateY(-2px);
+  }
+
+  .homeLink:focus-visible {
+    outline: 3px solid var(--animal-warning-color);
+    outline-offset: 4px;
+  }
+
+  .shore,
+  .sea {
+    position: absolute;
+    right: -5%;
+    bottom: 0;
+    left: -5%;
+  }
+
+  .shore {
+    z-index: 1;
+    bottom: 48px;
+    height: 110px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: #9fd68b;
+  }
+
+  .sea {
+    height: 52px;
+    background:
+      radial-gradient(ellipse at 12px -2px, transparent 8px, #74d5d1 8.5px) 0 0 / 38px 18px repeat-x,
+      #74d5d1;
+  }
+
+  .cloud {
+    position: absolute;
+    z-index: 0;
+    width: 136px;
+    height: 38px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 82%);
+  }
+
+  .cloud::before,
+  .cloud::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    border-radius: 50%;
+    background: inherit;
+  }
+
+  .cloud::before {
+    left: 24px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .cloud::after {
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .cloudOne {
+    top: 16%;
+    left: 10%;
+    transform: scale(0.7);
+  }
+
+  .cloudTwo {
+    top: 11%;
+    right: 12%;
+    transform: scale(1.08);
+  }
+
+  .cloudThree {
+    right: 23%;
+    bottom: 29%;
+    transform: scale(0.48);
+  }
+
+  @keyframes sailboat-float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+      transform: translateY(-9px) rotate(2deg);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .notFound {
+      padding-inline: 20px;
+    }
+
+    .cloudOne {
+      left: -28px;
+    }
+
+    .cloudTwo {
+      right: -46px;
+    }
+  }
+</style>

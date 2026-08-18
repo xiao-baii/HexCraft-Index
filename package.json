@@ -1,0 +1,28 @@
+{
+  "name": "hexcraft-index",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start": "astro dev",
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "fmt": "prettier . --write"
+  },
+  "dependencies": {
+    "animal-island-ui": "^1.4.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/react": "^4.4.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.16.6",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.3"
+  }
+}
