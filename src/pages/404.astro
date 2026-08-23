@@ -1,4 +1,5 @@
 ---
+import { Footer } from "animal-island-ui"
 import Layout from "@/layouts/Layout.astro"
 ---
 
@@ -22,8 +23,9 @@ import Layout from "@/layouts/Layout.astro"
       <a class="homeLink" href="/">返回 HexCraft 首页</a>
     </section>
 
-    <div class="shore" aria-hidden="true"></div>
-    <div class="sea" aria-hidden="true"></div>
+    <div class="notFoundSea" aria-hidden="true">
+      <Footer type="sea" seamless className="notFoundSeaWave" />
+    </div>
   </main>
 </Layout>
 
@@ -60,8 +62,8 @@ import Layout from "@/layouts/Layout.astro"
     margin-bottom: 18px;
     padding: 17px;
     border-radius: 30px;
-    background: #fffaf0;
-    filter: drop-shadow(0 12px 14px rgb(91 78 30 / 18%));
+    background: #fffdf8;
+    filter: drop-shadow(0 12px 14px rgb(51 116 110 / 18%));
     animation: sailboat-float 5.6s ease-in-out infinite;
   }
 
@@ -73,7 +75,7 @@ import Layout from "@/layouts/Layout.astro"
 
   .status {
     margin: 0;
-    color: var(--animal-warning-color);
+    color: #3c9c92;
     font-size: clamp(18px, 3vw, 24px);
     font-weight: 900;
     letter-spacing: 0.16em;
@@ -103,8 +105,8 @@ import Layout from "@/layouts/Layout.astro"
     border: 2px solid var(--animal-border-color-light);
     border-radius: 999px;
     color: var(--animal-text-color);
-    background: #fffaf0;
-    box-shadow: 0 5px #bdaea0;
+    background: #fffdf8;
+    box-shadow: 0 5px #b6c1bb;
     font-size: 16px;
     font-weight: 900;
     text-decoration: none;
@@ -114,7 +116,7 @@ import Layout from "@/layouts/Layout.astro"
   }
 
   .homeLink:hover {
-    box-shadow: 0 7px #bdaea0;
+    box-shadow: 0 7px #b6c1bb;
     transform: translateY(-2px);
   }
 
@@ -123,27 +125,26 @@ import Layout from "@/layouts/Layout.astro"
     outline-offset: 4px;
   }
 
-  .shore,
-  .sea {
+  .notFoundSea {
     position: absolute;
+    z-index: 1;
     right: -5%;
     bottom: 0;
     left: -5%;
+    width: 110%;
+    height: 104px;
+    overflow: hidden;
   }
 
-  .shore {
-    z-index: 1;
-    bottom: 48px;
-    height: 110px;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    background: #9fd68b;
-  }
-
-  .sea {
-    height: 52px;
-    background:
-      radial-gradient(ellipse at 12px -2px, transparent 8px, #74d5d1 8.5px) 0 0 / 38px 18px repeat-x,
-      #74d5d1;
+  :global(.notFoundSeaWave) {
+    width: 100%;
+    height: 100%;
+    background-position: left bottom;
+    background-size: auto 100%;
+    animation:
+      not-found-sea-current 92s linear infinite,
+      not-found-sea-tide 8s ease-in-out infinite;
+    will-change: background-position, translate;
   }
 
   .cloud {
@@ -202,6 +203,27 @@ import Layout from "@/layouts/Layout.astro"
 
     50% {
       transform: translateY(-9px) rotate(2deg);
+    }
+  }
+
+  @keyframes not-found-sea-current {
+    from {
+      background-position-x: 0;
+    }
+
+    to {
+      background-position-x: -619.355px;
+    }
+  }
+
+  @keyframes not-found-sea-tide {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+
+    50% {
+      translate: 0 1px;
     }
   }
 
