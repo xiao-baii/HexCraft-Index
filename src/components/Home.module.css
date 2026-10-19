@@ -1,0 +1,150 @@
+.main {
+  position: relative;
+  display: grid;
+  min-height: 480px;
+  flex: 1;
+  isolation: isolate;
+  place-items: center;
+  padding: 80px 32px 96px;
+}
+
+.texture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 12px;
+  color: #8b8072;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.16;
+  pointer-events: none;
+  user-select: none;
+  mask-image: radial-gradient(ellipse at 50% 45%, transparent 20%, #000 85%);
+}
+
+.textureRow {
+  display: flex;
+  flex-shrink: 0;
+  gap: 28px;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.textureRow:nth-child(3n + 1) {
+  transform: translateX(-96px);
+}
+
+.textureRow:nth-child(3n + 2) {
+  transform: translateX(-240px);
+}
+
+.hero {
+  width: min(100%, 720px);
+}
+
+.title {
+  margin: 0 0 48px;
+  font-family: var(--mono);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.065em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.githubLink {
+  display: grid;
+  min-height: 78px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: background 160ms ease;
+}
+
+.githubLink:hover {
+  background: #f2efe8;
+}
+
+.entryText {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  overflow-wrap: anywhere;
+}
+
+.entryName {
+  width: 76px;
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.entryDescription {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.entryArrow {
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.githubLink:hover .entryArrow {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+@media (max-width: 600px) {
+  .main {
+    min-height: 440px;
+    padding: 72px 20px 88px;
+  }
+
+  .title {
+    margin-bottom: 36px;
+  }
+
+  .githubLink {
+    min-height: 90px;
+    gap: 12px;
+    padding: 18px 20px;
+  }
+
+  .entryText {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .entryName {
+    width: auto;
+  }
+
+  .entryDescription {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .githubLink,
+  .entryArrow {
+    transition: none;
+  }
+
+  .githubLink:hover .entryArrow {
+    transform: none;
+  }
+}

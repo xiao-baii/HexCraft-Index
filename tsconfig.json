@@ -1,0 +1,10 @@
+{
+  "exclude": ["dist", "web"],
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

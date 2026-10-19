@@ -1,0 +1,98 @@
+---
+import SiteFrame from "@/components/SiteFrame.astro"
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout
+  title="找不到这一页 · HexCraft"
+  description="这个页面不存在，或已经搬到了别处。"
+>
+  <SiteFrame>
+    <main class="notFound" id="main" tabindex="-1">
+      <img class="sailboat" src="/sailboat.svg" width="96" height="96" alt="" />
+      <h1>找不到这一页</h1>
+      <p class="copy">这个页面不存在，或已经搬到了别处。</p>
+      <p class="status">404</p>
+      <a class="homeLink" href="/">返回首页</a>
+    </main>
+  </SiteFrame>
+</Layout>
+
+<style>
+  .notFound {
+    width: min(100% - 64px, 720px);
+    flex: 1;
+    margin-inline: auto;
+    padding-block: 48px 88px;
+  }
+
+  .sailboat {
+    display: block;
+    image-rendering: pixelated;
+  }
+
+  h1 {
+    margin: 32px 0 12px;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.15;
+  }
+
+  .copy {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .status {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .homeLink {
+    display: flex;
+    width: fit-content;
+    margin-top: 32px;
+    min-height: 44px;
+    align-items: center;
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+  }
+
+  .homeLink:hover {
+    color: var(--accent);
+    text-decoration-color: currentColor;
+  }
+
+  @media (max-width: 600px) {
+    .notFound {
+      width: calc(100% - 40px);
+      padding-block: 40px 72px;
+    }
+
+    .sailboat {
+      width: 72px;
+      height: 72px;
+    }
+
+    h1 {
+      margin-top: 28px;
+    }
+
+    .copy {
+      font-size: 14px;
+    }
+
+    .homeLink {
+      margin-top: 28px;
+    }
+  }
+</style>

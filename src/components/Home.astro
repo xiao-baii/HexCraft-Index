@@ -1,0 +1,47 @@
+---
+import { config } from "@/lib/config"
+import SiteFrame from "./SiteFrame.astro"
+import styles from "./Home.module.css"
+
+const keywords = [
+  "TypeScript",
+  "开源项目",
+  "HexCraft",
+  "全栈开发",
+  "GitHub",
+  "常用工具",
+]
+---
+
+<SiteFrame>
+  <main class={styles.main} id="main" tabindex="-1">
+    <div class={styles.texture} aria-hidden="true">
+      {
+        Array.from({ length: 20 }, () => (
+          <div class={styles.textureRow}>
+            {[...keywords, ...keywords, ...keywords].map((keyword) => (
+              <span>{keyword}</span>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <section class={styles.hero} aria-labelledby="hero-title">
+      <h1 id="hero-title" class={styles.title}>xiao-baii</h1>
+
+      <a
+        class={styles.githubLink}
+        href={config.github}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class={styles.entryText}>
+          <span class={styles.entryName}>GitHub</span>
+          <span class={styles.entryDescription}>代码与开源项目</span>
+        </span>
+        <span class={styles.entryArrow} aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
+</SiteFrame>

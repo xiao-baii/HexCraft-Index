@@ -1,0 +1,21 @@
+{
+  "name": "hexcraft-index",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start": "astro dev",
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "fmt": "prettier . --write",
+    "verify-notes": "node scripts/notes/verify-agent-note-tree.mjs && node scripts/notes/verify-agent-note-format.mjs && node scripts/notes/verify-archived-agent-notes.mjs"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "astro": "^7.2.10",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.3"
+  }
+}
